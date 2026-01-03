@@ -7,7 +7,7 @@ import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
 import { Spinner } from '@/components/ui/spinner';
 import AuthBase from '@/layouts/AuthLayout.vue';
-import { register } from '@/routes';
+
 import { store } from '@/routes/login';
 import { request } from '@/routes/password';
 import { Form, Head } from '@inertiajs/vue3';
@@ -98,13 +98,13 @@ defineProps<{
                 </Button>
             </div>
 
-            <div
+            <!-- <div
                 class="text-center text-sm text-muted-foreground"
                 v-if="canRegister"
             >
                 Don't have an account?
-                <TextLink :href="register()" :tabindex="5">Sign up</TextLink>
-            </div>
+                <TextLink :href="'#'" :tabindex="5">Sign up</TextLink>
+            </div> -->
         </Form>
     </AuthBase>
 </template>

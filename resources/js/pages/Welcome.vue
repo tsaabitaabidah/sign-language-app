@@ -1,5 +1,6 @@
 <script setup>
 import { ref, onMounted, onUnmounted, nextTick } from 'vue'
+import AppLogoIcon from '@/components/AppLogoIcon.vue'
 import { Head, Link } from '@inertiajs/vue3'
 import { Button } from '@/components/ui/button'
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card'
@@ -8,7 +9,7 @@ import { Textarea } from '@/components/ui/textarea'
 import { Alert, AlertDescription } from '@/components/ui/alert'
 import { Separator } from '@/components/ui/separator'
 import { Progress } from '@/components/ui/progress'
-import { dashboard, login, register } from '@/routes'
+import { dashboard, login } from '@/routes'
 
 const props = defineProps({
   canRegister: {
@@ -558,8 +559,8 @@ const getConfidenceBgColor = (confidence) => {
         <div class="flex justify-between h-16">
           <div class="flex items-center">
             <div class="flex-shrink-0 flex items-center">
-              <div class="w-8 h-8 bg-gradient-to-r from-blue-500 to-purple-600 rounded-lg mr-3"></div>
-              <span class="text-xl font-bold bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">
+              <AppLogoIcon class="size-12" />
+              <span class="text-xl font-bold bg-gradient-to-br from-violet-600 to-indigo-600 bg-clip-text text-transparent">
                 Signify
               </span>
             </div>
@@ -575,7 +576,7 @@ const getConfidenceBgColor = (confidence) => {
             <template v-else>
               <Link
                 :href="login()"
-                class="text-gray-700 hover:text-gray-900 px-3 py-2 rounded-md text-sm font-medium transition-colors"
+                class="text-gray-700 hover:text-gray-900 px-3 py-2 rounded-md text-xl font-bold transition-colors"
               >
                 Sign In
               </Link>
@@ -587,16 +588,16 @@ const getConfidenceBgColor = (confidence) => {
 
     <!-- Hero Section -->
     <div class="relative overflow-hidden">
-      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
         <div class="text-center">
-          <h1 class="text-4xl md:text-6xl font-bold text-gray-900 mb-6">
+          <h1 class="text-3xl md:text-5xl font-bold text-gray-900 mb-4">
             <span class="bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">
               Sign Language Detection
             </span>
             <br>
-            <span class="text-3xl md:text-4xl text-gray-700">Powered by AI</span>
+            <span class="text-2xl md:text-3xl text-gray-700">Powered by AI</span>
           </h1>
-          <p class="text-xl text-gray-600 max-w-3xl mx-auto mb-8">
+          <p class="text-lg text-gray-600 max-w-3xl mx-auto mb-8">
             Transform sign language gestures into text using advanced computer vision and machine learning. 
             Communicate seamlessly with real-time hand tracking technology supporting both single and dual-hand gestures.
           </p>
@@ -639,9 +640,9 @@ const getConfidenceBgColor = (confidence) => {
                     Position your hand(s) in front of the camera and click "Start Detection"
                   </CardDescription>
                 </CardHeader>
-                <CardContent class="space-y-6">
+                <CardContent class="space-y-4">
                   <!-- Camera View -->
-                  <div class="relative rounded-xl overflow-hidden bg-gradient-to-br from-gray-900 to-gray-800 shadow-inner max-w-md mx-auto">
+                  <div class="relative rounded-xl overflow-hidden bg-gradient-to-br from-gray-900 to-gray-800 shadow-inner max-w-sm mx-auto">
                     <div class="relative aspect-square">
                       <video
                         ref="videoRef"
